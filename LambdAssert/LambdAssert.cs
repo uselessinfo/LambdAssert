@@ -4,7 +4,6 @@ using MbUnit.Framework;
 using Gallio.Framework.Assertions;
 using System.Threading;
 using System.Linq;
-using CCI.Utility.Extensions;
 
 namespace LambdAssert
 {
@@ -305,23 +304,26 @@ namespace LambdAssert
 
         public LambdAssert Click(string selectorCode)
         {
-            WatinElement el = null;
-            return ConditionalDelay(
-                () =>
-                    {
-                    el = ParentLAWW.Get(selectorCode);
-                    return Guard.GetSafeResult(() => el.Element.Exists, false);
-                    },
-                () =>
-                    {
-                    ExecuteAssert(() =>
-                        {
-                        if (!Guard.GetSafeResult(() => el.Element.Exists, false))
-                            Assert.Fail("Could not find element to click.  Selector code = " + selectorCode);
-                        });
-                    el.Click();
-                    }
-            );
+			ParentLAWW.Get(selectorCode).Click();
+			return this;
+			
+			//WatinElement el = null;
+			//return ConditionalDelay(
+			//    () =>
+			//        {
+			//        el = ParentLAWW.Get(selectorCode);
+			//        return Guard.GetSafeResult(() => el.Element.Exists, false);
+			//        },
+			//    () =>
+			//        {
+			//        ExecuteAssert(() =>
+			//            {
+			//            if (!Guard.GetSafeResult(() => el.Element.Exists, false))
+			//                Assert.Fail("Could not find element to click.  Selector code = " + selectorCode);
+			//            });
+			//        el.Click();
+			//        }
+			//);
         }
 
         #endregion

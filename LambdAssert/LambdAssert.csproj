@@ -54,12 +54,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WatinElement.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\Utility\CCI.Utility.csproj">
-      <Project>{F1DFADEC-DAC8-46D0-B01E-A882BE12F0A2}</Project>
-      <Name>CCI.Utility</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
